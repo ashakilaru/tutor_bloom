@@ -56,3 +56,9 @@ On 2026-09-13, xcodebuild reported error 66: Runner.xcworkspace “is not a work
 - https://developer.apple.com/app-store/review/
 - https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app
 - https://docs.flutter.dev/deployment/ios
+
+## Follow-up iPhone build attempt
+
+Flutter release configuration and CocoaPods installation succeeded. Xcode shows team Asha Kilaru with automatic signing. A direct project archive progresses through compilation but fails in asset compilation because the agent execution environment cannot connect to CoreSimulator (`No available simulator runtimes for platform iphonesimulator`). No usable archive or IPA was produced. Xcode UI lists installed iOS simulators, so this does not establish that runtimes are missing from the Mac.
+
+Run `release/build-iphone.command` from the normal macOS Terminal to build using the full Xcode environment. It runs Flutter's release IPA build and stops on errors. Signing/export may still require account or provisioning changes; success has not yet been verified.
